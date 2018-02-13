@@ -1,0 +1,44 @@
+asdfasdfasff f fasf fs af
+
+function unlockAccount(password,time){
+	
+	var accounts = new Array();
+ 
+	var length;
+
+	accounts = eth.accounts;
+
+	length = accounts.length;
+
+	var flag;
+	var num = 0;
+
+	for( var i = 0; i < length; i++ ){
+		
+		flag = personal.unlockAccount(accounts[i],password,time);
+		
+		if(flag){
+			console.log("Unlock Account "+ i + ":" + accounts[i]);
+			num++;
+		}
+		
+	}
+
+	console.log("Operation Done. Unlock " + num + "/" + length + " Accounts");
+	
+}
+
+function createAccount(password,number){
+	
+	
+	for( var i = 0; i < number; i++ ){				
+		
+		console.log("New Account Generated :" + personal.newAccount(password));
+			
+	}
+
+	console.log("Operation Done. Generated " + number + " New Account with '" + password + "' Password");
+	
+}
+
+
